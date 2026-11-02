@@ -1,0 +1,13 @@
+# Showcase fork only (never part of an upstream pull request).
+version: 1
+app:
+  install: "CYPRESS_INSTALL_BINARY=0 npx --yes yarn@1.22.22 install --frozen-lockfile"
+  start: npx --no-install vitepress dev docs --host 0.0.0.0 --port {port}
+  url: http://localhost:{port}
+  readyPath: /docs/components/toast
+  runtime: node22
+  env:
+    NODE_ENV: development
+demo:
+  maxVideos: 1
+  beforePass: true
